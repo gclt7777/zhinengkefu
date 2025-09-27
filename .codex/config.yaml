@@ -1,24 +1,10 @@
 runtime:
-  language: node
-  version: 18
-  additional_languages:
-    - python: "3.11"
+  language: python
+  version: "3.11"
 
 setup:
-  # 使用国内镜像，加速 npm 和 pip
-  - run: npm config set registry https://registry.npmmirror.com
-  - run: pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-
-  # 分批安装 Python 依赖
-  - run: pip install --break-system-packages fastapi uvicorn pydantic
-  - run: pip install --break-system-packages torch==2.2.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
-  - run: pip install --break-system-packages --default-timeout=600 --retries=10 -r requirements.txt
-
-  # 安装 Node 依赖
-  - run: npm install
+  - run: pip install --break-system-packages requests
 
 tasks:
-  frontend:
-    run: npm run dev
-  backend:
-    run: uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+  test:
+    run: python -c "import requests; print('✅ requests ok')"
