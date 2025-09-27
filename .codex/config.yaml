@@ -3,8 +3,10 @@ runtime:
   version: "3.11"
 
 setup:
-  - run: pip install --break-system-packages requests
+  - run: python -m venv .venv
+  - run: .venv/bin/pip install --upgrade pip
+  - run: .venv/bin/pip install requests
 
 tasks:
   test:
-    run: python -c "import requests; print('✅ requests ok')"
+    run: .venv/bin/python -c "import requests; print('✅ requests installed OK')"
