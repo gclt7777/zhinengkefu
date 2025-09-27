@@ -1,12 +1,28 @@
 runtime:
-  language: python
-  version: "3.11"
+  # 主环境：Node 18（跑前端）
+  language: node
+  version: 18
+  additional_languages:
+    - python: "3.11"   # 额外启用 Python 3.11（跑后端）
 
 setup:
+  # 使用国内镜像加速 npm 和 pip
+  - run: npm config set registry https://registry.npmmirror.com
   - run: python -m venv .venv
+  - run: .venv/bin/pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
   - run: .venv/bin/pip install --upgrade pip
-  - run: .venv/bin/pip install requests
+
+  # 安装前端依赖
+  - run: npm install
+
+  # 安装后端依赖
+  - run: .venv/bin/pip install -r requirements.txt
 
 tasks:
-  test:
-    run: .venv/bin/python -c "import requests; print('✅ requests installed OK')"
+  # 启动前端（React/Vue/Next.js 等）
+  frontend:
+    run: npm run dev
+
+  # 启动后端（FastAPI + Uvicorn）
+  backend:
+    run: .venv/bin/python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
