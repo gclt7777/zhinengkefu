@@ -5,14 +5,5 @@ runtime:
     - python: "3.11"
 
 setup:
-  - run: npm config set registry https://registry.npmmirror.com
-  - run: pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-  - run: npm install
-  - run: pip install -r requirements.txt
-
-tasks:
-  frontend:
-    run: npm run dev
-  backend:
-    run: uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
-
+  # 测试：只装一个小包 requests
+  - run: pip install --break-system-packages requests
