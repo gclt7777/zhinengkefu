@@ -5,8 +5,6 @@ from __future__ import annotations
 from textwrap import dedent
 from typing import Final
 
-from open_webui.models.functions import FunctionForm, FunctionMeta, Functions
-
 
 MULTI_AGENT_PIPELINE_ID: Final[str] = "tri_role_support"
 MULTI_AGENT_PIPELINE_NAME: Final[str] = "Tri-Role Support Agents"
@@ -241,12 +239,29 @@ MULTI_AGENT_PIPELINE_CONTENT: Final[str] = dedent(
 )
 
 
+_DEFAULT_AGENTS_SEEDED: bool = False
+
+
 def ensure_default_agents() -> None:
     """Ensure that the built-in multi-agent pipeline exists."""
+
+    global _DEFAULT_AGENTS_SEEDED
+    if _DEFAULT_AGENTS_SEEDED:
+        return
+
+    from open_webui.models.functions import FunctionForm, FunctionMeta, Functions
 
     try:
         existing = Functions.get_function_by_id(MULTI_AGENT_PIPELINE_ID)
         if existing is not None:
+            if not getattr(existing, "is_active", True) or not getattr(
+                existing, "is_global", True
+            ):
+                Functions.update_function_by_id(
+                    MULTI_AGENT_PIPELINE_ID,
+                    {"is_active": True, "is_global": True},
+                )
+            _DEFAULT_AGENTS_SEEDED = True
             return
 
         form = FunctionForm(
@@ -261,6 +276,7 @@ def ensure_default_agents() -> None:
                 MULTI_AGENT_PIPELINE_ID,
                 {"is_active": True, "is_global": True},
             )
+        _DEFAULT_AGENTS_SEEDED = True
     except Exception:
         # Default seeding should never break the application startup
         return
