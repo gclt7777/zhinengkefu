@@ -790,6 +790,8 @@ app.state.TOOL_CONTENTS = {}
 
 app.state.FUNCTIONS = {}
 app.state.FUNCTION_CONTENTS = {}
+# Ensure bundled multi-agent pipelines are available for new installations
+ensure_default_agents()
 
 ########################################
 #
