@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from textwrap import dedent
-from typing import Final
+from typing import TYPE_CHECKING, Final
 
-from open_webui.models.functions import FunctionForm, FunctionMeta, Functions
+if TYPE_CHECKING:
+    from open_webui.models.functions import FunctionForm, FunctionMeta, Functions
 
 
 MULTI_AGENT_PIPELINE_ID: Final[str] = "tri_role_support"
@@ -243,6 +244,8 @@ MULTI_AGENT_PIPELINE_CONTENT: Final[str] = dedent(
 
 def ensure_default_agents() -> None:
     """Ensure that the built-in multi-agent pipeline exists."""
+
+    from open_webui.models.functions import FunctionForm, FunctionMeta, Functions
 
     try:
         existing = Functions.get_function_by_id(MULTI_AGENT_PIPELINE_ID)
