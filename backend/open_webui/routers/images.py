@@ -18,12 +18,12 @@ from fastapi import (
     UploadFile,
 )
 
-from backend.open_webui.config import CACHE_DIR
-from backend.open_webui.constants import ERROR_MESSAGES
-from backend.open_webui.env import ENABLE_FORWARD_USER_INFO_HEADERS, SRC_LOG_LEVELS
-from backend.open_webui.routers.files import upload_file_handler
-from backend.open_webui.utils.auth import get_admin_user, get_verified_user
-from backend.open_webui.utils.images.comfyui import (
+from open_webui.config import CACHE_DIR
+from open_webui.constants import ERROR_MESSAGES
+from open_webui.env import ENABLE_FORWARD_USER_INFO_HEADERS, SRC_LOG_LEVELS
+from open_webui.routers.files import upload_file_handler
+from open_webui.utils.auth import get_admin_user, get_verified_user
+from open_webui.utils.images.comfyui import (
     ComfyUIGenerateImageForm,
     ComfyUIWorkflow,
     comfyui_generate_image,

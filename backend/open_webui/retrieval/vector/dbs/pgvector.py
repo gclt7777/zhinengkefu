@@ -27,14 +27,14 @@ from sqlalchemy.ext.mutable import MutableDict
 from sqlalchemy.exc import NoSuchTableError
 
 
-from backend.open_webui.retrieval.vector.utils import stringify_metadata
-from backend.open_webui.retrieval.vector.main import (
+from open_webui.retrieval.vector.utils import stringify_metadata
+from open_webui.retrieval.vector.main import (
     VectorDBBase,
     VectorItem,
     SearchResult,
     GetResult,
 )
-from backend.open_webui.config import (
+from open_webui.config import (
     PGVECTOR_DB_URL,
     PGVECTOR_INITIALIZE_MAX_VECTOR_LENGTH,
     PGVECTOR_CREATE_EXTENSION,
@@ -46,7 +46,7 @@ from backend.open_webui.config import (
     PGVECTOR_POOL_RECYCLE,
 )
 
-from backend.open_webui.env import SRC_LOG_LEVELS
+from open_webui.env import SRC_LOG_LEVELS
 
 VECTOR_LENGTH = PGVECTOR_INITIALIZE_MAX_VECTOR_LENGTH
 Base = declarative_base()

@@ -5,7 +5,7 @@ import datetime
 import logging
 from aiohttp import ClientSession
 
-from backend.open_webui.models.auths import (
+from open_webui.models.auths import (
     AddUserForm,
     ApiKey,
     Auths,
@@ -17,12 +17,12 @@ from backend.open_webui.models.auths import (
     UpdatePasswordForm,
     UserResponse,
 )
-from backend.open_webui.models.users import Users, UpdateProfileForm
-from backend.open_webui.models.groups import Groups
-from backend.open_webui.models.oauth_sessions import OAuthSessions
+from open_webui.models.users import Users, UpdateProfileForm
+from open_webui.models.groups import Groups
+from open_webui.models.oauth_sessions import OAuthSessions
 
-from backend.open_webui.constants import ERROR_MESSAGES, WEBHOOK_MESSAGES
-from backend.open_webui.env import (
+from open_webui.constants import ERROR_MESSAGES, WEBHOOK_MESSAGES
+from open_webui.env import (
     WEBUI_AUTH,
     WEBUI_AUTH_TRUSTED_EMAIL_HEADER,
     WEBUI_AUTH_TRUSTED_NAME_HEADER,
@@ -35,11 +35,11 @@ from backend.open_webui.env import (
 )
 from fastapi import APIRouter, Depends, HTTPException, Request, status
 from fastapi.responses import RedirectResponse, Response, JSONResponse
-from backend.open_webui.config import OPENID_PROVIDER_URL, ENABLE_OAUTH_SIGNUP, ENABLE_LDAP
+from open_webui.config import OPENID_PROVIDER_URL, ENABLE_OAUTH_SIGNUP, ENABLE_LDAP
 from pydantic import BaseModel
 
-from backend.open_webui.utils.misc import parse_duration, validate_email_format
-from backend.open_webui.utils.auth import (
+from open_webui.utils.misc import parse_duration, validate_email_format
+from open_webui.utils.auth import (
     decode_token,
     create_api_key,
     create_token,
@@ -49,8 +49,8 @@ from backend.open_webui.utils.auth import (
     get_password_hash,
     get_http_authorization_cred,
 )
-from backend.open_webui.utils.webhook import post_webhook
-from backend.open_webui.utils.access_control import get_permissions
+from open_webui.utils.webhook import post_webhook
+from open_webui.utils.access_control import get_permissions
 
 from typing import Optional, List
 

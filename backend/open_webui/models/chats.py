@@ -4,10 +4,10 @@ import time
 import uuid
 from typing import Optional
 
-from backend.open_webui.internal.db import Base, get_db
-from backend.open_webui.models.tags import TagModel, Tag, Tags
-from backend.open_webui.models.folders import Folders
-from backend.open_webui.env import SRC_LOG_LEVELS
+from open_webui.internal.db import Base, get_db
+from open_webui.models.tags import TagModel, Tag, Tags
+from open_webui.models.folders import Folders
+from open_webui.env import SRC_LOG_LEVELS
 
 from pydantic import BaseModel, ConfigDict
 from sqlalchemy import BigInteger, Boolean, Column, String, Text, JSON, Index

@@ -21,11 +21,11 @@ from fastapi.responses import (
 from pydantic import BaseModel
 from starlette.background import BackgroundTask
 
-from backend.open_webui.models.models import Models
-from backend.open_webui.config import (
+from open_webui.models.models import Models
+from open_webui.config import (
     CACHE_DIR,
 )
-from backend.open_webui.env import (
+from open_webui.env import (
     MODELS_CACHE_TTL,
     AIOHTTP_CLIENT_SESSION_SSL,
     AIOHTTP_CLIENT_TIMEOUT,
@@ -33,22 +33,22 @@ from backend.open_webui.env import (
     ENABLE_FORWARD_USER_INFO_HEADERS,
     BYPASS_MODEL_ACCESS_CONTROL,
 )
-from backend.open_webui.models.users import UserModel
+from open_webui.models.users import UserModel
 
-from backend.open_webui.constants import ERROR_MESSAGES
-from backend.open_webui.env import SRC_LOG_LEVELS
+from open_webui.constants import ERROR_MESSAGES
+from open_webui.env import SRC_LOG_LEVELS
 
 
-from backend.open_webui.utils.payload import (
+from open_webui.utils.payload import (
     apply_model_params_to_body_openai,
     apply_system_prompt_to_body,
 )
-from backend.open_webui.utils.misc import (
+from open_webui.utils.misc import (
     convert_logit_bias_input_to_json,
 )
 
-from backend.open_webui.utils.auth import get_admin_user, get_verified_user
-from backend.open_webui.utils.access_control import has_access
+from open_webui.utils.auth import get_admin_user, get_verified_user
+from open_webui.utils.access_control import has_access
 
 
 log = logging.getLogger(__name__)

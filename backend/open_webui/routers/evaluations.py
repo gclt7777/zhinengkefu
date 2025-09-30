@@ -2,16 +2,16 @@ from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException, status, Request
 from pydantic import BaseModel
 
-from backend.open_webui.models.users import Users, UserModel
-from backend.open_webui.models.feedbacks import (
+from open_webui.models.users import Users, UserModel
+from open_webui.models.feedbacks import (
     FeedbackModel,
     FeedbackResponse,
     FeedbackForm,
     Feedbacks,
 )
 
-from backend.open_webui.constants import ERROR_MESSAGES
-from backend.open_webui.utils.auth import get_admin_user, get_verified_user
+from open_webui.constants import ERROR_MESSAGES
+from open_webui.utils.auth import get_admin_user, get_verified_user
 
 router = APIRouter()
 

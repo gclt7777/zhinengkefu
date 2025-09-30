@@ -4,8 +4,8 @@ import logging
 from contextlib import contextmanager
 from typing import Any, Optional
 
-from backend.open_webui.internal.wrappers import register_connection
-from backend.open_webui.env import (
+from open_webui.internal.wrappers import register_connection
+from open_webui.env import (
     OPEN_WEBUI_DIR,
     DATABASE_URL,
     DATABASE_SCHEMA,

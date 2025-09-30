@@ -2,14 +2,14 @@ from opensearchpy import OpenSearch
 from opensearchpy.helpers import bulk
 from typing import Optional
 
-from backend.open_webui.retrieval.vector.utils import stringify_metadata
-from backend.open_webui.retrieval.vector.main import (
+from open_webui.retrieval.vector.utils import stringify_metadata
+from open_webui.retrieval.vector.main import (
     VectorDBBase,
     VectorItem,
     SearchResult,
     GetResult,
 )
-from backend.open_webui.config import (
+from open_webui.config import (
     OPENSEARCH_URI,
     OPENSEARCH_SSL,
     OPENSEARCH_CERT_VERIFY,

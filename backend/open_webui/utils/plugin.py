@@ -7,9 +7,9 @@ import types
 import tempfile
 import logging
 
-from backend.open_webui.env import SRC_LOG_LEVELS, PIP_OPTIONS, PIP_PACKAGE_INDEX_OPTIONS
-from backend.open_webui.models.functions import Functions
-from backend.open_webui.models.tools import Tools
+from open_webui.env import SRC_LOG_LEVELS, PIP_OPTIONS, PIP_PACKAGE_INDEX_OPTIONS
+from open_webui.models.functions import Functions
+from open_webui.models.tools import Tools
 
 log = logging.getLogger(__name__)
 log.setLevel(SRC_LOG_LEVELS["MAIN"])

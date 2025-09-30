@@ -19,34 +19,34 @@ from fastapi import (
 from starlette.responses import Response, StreamingResponse
 
 
-from backend.open_webui.constants import ERROR_MESSAGES
-from backend.open_webui.socket.main import (
+from open_webui.constants import ERROR_MESSAGES
+from open_webui.socket.main import (
     get_event_call,
     get_event_emitter,
 )
 
 
-from backend.open_webui.models.users import UserModel
-from backend.open_webui.models.functions import Functions
-from backend.open_webui.models.models import Models
+from open_webui.models.users import UserModel
+from open_webui.models.functions import Functions
+from open_webui.models.models import Models
 
-from backend.open_webui.utils.plugin import (
+from open_webui.utils.plugin import (
     load_function_module_by_id,
     get_function_module_from_cache,
 )
-from backend.open_webui.utils.tools import get_tools
-from backend.open_webui.utils.access_control import has_access
+from open_webui.utils.tools import get_tools
+from open_webui.utils.access_control import has_access
 
-from backend.open_webui.env import SRC_LOG_LEVELS, GLOBAL_LOG_LEVEL
+from open_webui.env import SRC_LOG_LEVELS, GLOBAL_LOG_LEVEL
 
-from backend.open_webui.utils.misc import (
+from open_webui.utils.misc import (
     add_or_update_system_message,
     get_last_user_message,
     prepend_to_first_user_message_content,
     openai_chat_chunk_message_template,
     openai_chat_completion_message_template,
 )
-from backend.open_webui.utils.payload import (
+from open_webui.utils.payload import (
     apply_model_params_to_body_openai,
     apply_system_prompt_to_body,
 )

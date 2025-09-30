@@ -3,10 +3,10 @@ from pydantic import BaseModel
 import logging
 from typing import Optional
 
-from backend.open_webui.models.memories import Memories, MemoryModel
-from backend.open_webui.retrieval.vector.factory import VECTOR_DB_CLIENT
-from backend.open_webui.utils.auth import get_verified_user
-from backend.open_webui.env import SRC_LOG_LEVELS
+from open_webui.models.memories import Memories, MemoryModel
+from open_webui.retrieval.vector.factory import VECTOR_DB_CLIENT
+from open_webui.utils.auth import get_verified_user
+from open_webui.env import SRC_LOG_LEVELS
 
 
 log = logging.getLogger(__name__)

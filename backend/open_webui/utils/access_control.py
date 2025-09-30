@@ -1,9 +1,9 @@
 from typing import Optional, Set, Union, List, Dict, Any
-from backend.open_webui.models.users import Users, UserModel
-from backend.open_webui.models.groups import Groups
+from open_webui.models.users import Users, UserModel
+from open_webui.models.groups import Groups
 
 
-from backend.open_webui.config import DEFAULT_USER_PERMISSIONS
+from open_webui.config import DEFAULT_USER_PERMISSIONS
 import json
 
 

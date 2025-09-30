@@ -18,14 +18,14 @@ from pydantic import BaseModel
 from starlette.responses import FileResponse
 from typing import Optional
 
-from backend.open_webui.env import SRC_LOG_LEVELS, AIOHTTP_CLIENT_SESSION_SSL
-from backend.open_webui.config import CACHE_DIR
-from backend.open_webui.constants import ERROR_MESSAGES
+from open_webui.env import SRC_LOG_LEVELS, AIOHTTP_CLIENT_SESSION_SSL
+from open_webui.config import CACHE_DIR
+from open_webui.constants import ERROR_MESSAGES
 
 
-from backend.open_webui.routers.openai import get_all_models_responses
+from open_webui.routers.openai import get_all_models_responses
 
-from backend.open_webui.utils.auth import get_admin_user
+from open_webui.utils.auth import get_admin_user
 
 log = logging.getLogger(__name__)
 log.setLevel(SRC_LOG_LEVELS["MAIN"])

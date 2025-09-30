@@ -1,12 +1,12 @@
 import inspect
 import logging
 
-from backend.open_webui.utils.plugin import (
+from open_webui.utils.plugin import (
     load_function_module_by_id,
     get_function_module_from_cache,
 )
-from backend.open_webui.models.functions import Functions
-from backend.open_webui.env import SRC_LOG_LEVELS
+from open_webui.models.functions import Functions
+from open_webui.env import SRC_LOG_LEVELS
 
 log = logging.getLogger(__name__)
 log.setLevel(SRC_LOG_LEVELS["MAIN"])

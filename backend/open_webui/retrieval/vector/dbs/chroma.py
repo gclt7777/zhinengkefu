@@ -5,15 +5,15 @@ from chromadb.utils.batch_utils import create_batches
 
 from typing import Optional
 
-from backend.open_webui.retrieval.vector.main import (
+from open_webui.retrieval.vector.main import (
     VectorDBBase,
     VectorItem,
     SearchResult,
     GetResult,
 )
-from backend.open_webui.retrieval.vector.utils import stringify_metadata
+from open_webui.retrieval.vector.utils import stringify_metadata
 
-from backend.open_webui.config import (
+from open_webui.config import (
     CHROMA_DATA_PATH,
     CHROMA_HTTP_HOST,
     CHROMA_HTTP_PORT,
@@ -24,7 +24,7 @@ from backend.open_webui.config import (
     CHROMA_CLIENT_AUTH_PROVIDER,
     CHROMA_CLIENT_AUTH_CREDENTIALS,
 )
-from backend.open_webui.env import SRC_LOG_LEVELS
+from open_webui.env import SRC_LOG_LEVELS
 
 log = logging.getLogger(__name__)
 log.setLevel(SRC_LOG_LEVELS["RAG"])

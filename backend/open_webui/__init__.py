@@ -1,7 +1,11 @@
 import base64
 import os
 import random
+import sys
 from pathlib import Path
+
+sys.modules.setdefault("open_webui", sys.modules[__name__])
+sys.modules.setdefault("backend.open_webui", sys.modules[__name__])
 
 import typer
 import uvicorn
