@@ -148,6 +148,7 @@ venv.bak/
 .spyderproject
 .spyproject
 
+
 # Rope project settings
 .ropeproject
 
@@ -310,3 +311,17 @@ dist
 cypress/videos
 cypress/screenshots
 .vscode/settings.json
+
+# Python 虚拟环境
+.venv*/
+.venv311/
+
+# Python 缓存文件
+*.pyc
+__pycache__/
+
+# 本地 secret key
+.webui_secret_key
+
+# 备份文件
+*.bak
