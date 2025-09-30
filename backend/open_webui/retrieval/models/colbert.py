@@ -5,9 +5,9 @@ import numpy as np
 from colbert.infra import ColBERTConfig
 from colbert.modeling.checkpoint import Checkpoint
 
-from backend.open_webui.env import SRC_LOG_LEVELS
+from open_webui.env import SRC_LOG_LEVELS
 
-from backend.open_webui.retrieval.models.base_reranker import BaseReranker
+from open_webui.retrieval.models.base_reranker import BaseReranker
 
 log = logging.getLogger(__name__)
 log.setLevel(SRC_LOG_LEVELS["RAG"])

@@ -3,8 +3,8 @@ import time
 import uuid
 from typing import Optional
 
-from backend.open_webui.internal.db import Base, get_db
-from backend.open_webui.utils.access_control import has_access
+from open_webui.internal.db import Base, get_db
+from open_webui.utils.access_control import has_access
 
 from pydantic import BaseModel, ConfigDict
 from sqlalchemy import BigInteger, Boolean, Column, String, Text, JSON

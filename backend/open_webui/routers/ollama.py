@@ -18,10 +18,10 @@ from aiocache import cached
 import requests
 from urllib.parse import quote
 
-from backend.open_webui.models.chats import Chats
-from backend.open_webui.models.users import UserModel
+from open_webui.models.chats import Chats
+from open_webui.models.users import UserModel
 
-from backend.open_webui.env import (
+from open_webui.env import (
     ENABLE_FORWARD_USER_INFO_HEADERS,
 )
 
@@ -40,23 +40,23 @@ from pydantic import BaseModel, ConfigDict, validator
 from starlette.background import BackgroundTask
 
 
-from backend.open_webui.models.models import Models
-from backend.open_webui.utils.misc import (
+from open_webui.models.models import Models
+from open_webui.utils.misc import (
     calculate_sha256,
 )
-from backend.open_webui.utils.payload import (
+from open_webui.utils.payload import (
     apply_model_params_to_body_ollama,
     apply_model_params_to_body_openai,
     apply_system_prompt_to_body,
 )
-from backend.open_webui.utils.auth import get_admin_user, get_verified_user
-from backend.open_webui.utils.access_control import has_access
+from open_webui.utils.auth import get_admin_user, get_verified_user
+from open_webui.utils.access_control import has_access
 
 
-from backend.open_webui.config import (
+from open_webui.config import (
     UPLOAD_DIR,
 )
-from backend.open_webui.env import (
+from open_webui.env import (
     ENV,
     SRC_LOG_LEVELS,
     MODELS_CACHE_TTL,
@@ -65,7 +65,7 @@ from backend.open_webui.env import (
     AIOHTTP_CLIENT_TIMEOUT_MODEL_LIST,
     BYPASS_MODEL_ACCESS_CONTROL,
 )
-from backend.open_webui.constants import ERROR_MESSAGES
+from open_webui.constants import ERROR_MESSAGES
 
 log = logging.getLogger(__name__)
 log.setLevel(SRC_LOG_LEVELS["OLLAMA"])

@@ -6,19 +6,19 @@ from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException, Request, status, BackgroundTasks
 from pydantic import BaseModel
 
-from backend.open_webui.socket.main import sio
+from open_webui.socket.main import sio
 
 
-from backend.open_webui.models.users import Users, UserResponse
-from backend.open_webui.models.notes import Notes, NoteModel, NoteForm, NoteUserResponse
+from open_webui.models.users import Users, UserResponse
+from open_webui.models.notes import Notes, NoteModel, NoteForm, NoteUserResponse
 
-from backend.open_webui.config import ENABLE_ADMIN_CHAT_ACCESS, ENABLE_ADMIN_EXPORT
-from backend.open_webui.constants import ERROR_MESSAGES
-from backend.open_webui.env import SRC_LOG_LEVELS
+from open_webui.config import ENABLE_ADMIN_CHAT_ACCESS, ENABLE_ADMIN_EXPORT
+from open_webui.constants import ERROR_MESSAGES
+from open_webui.env import SRC_LOG_LEVELS
 
 
-from backend.open_webui.utils.auth import get_admin_user, get_verified_user
-from backend.open_webui.utils.access_control import has_access, has_permission
+from open_webui.utils.auth import get_admin_user, get_verified_user
+from open_webui.utils.access_control import has_access, has_permission
 
 log = logging.getLogger(__name__)
 log.setLevel(SRC_LOG_LEVELS["MODELS"])

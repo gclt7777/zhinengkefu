@@ -3,8 +3,8 @@ from pathlib import Path
 from typing import Optional
 import logging
 
-from backend.open_webui.models.users import Users
-from backend.open_webui.models.groups import (
+from open_webui.models.users import Users
+from open_webui.models.groups import (
     Groups,
     GroupForm,
     GroupUpdateForm,
@@ -12,12 +12,12 @@ from backend.open_webui.models.groups import (
     UserIdsForm,
 )
 
-from backend.open_webui.config import CACHE_DIR
-from backend.open_webui.constants import ERROR_MESSAGES
+from open_webui.config import CACHE_DIR
+from open_webui.constants import ERROR_MESSAGES
 from fastapi import APIRouter, Depends, HTTPException, Request, status
 
-from backend.open_webui.utils.auth import get_admin_user, get_verified_user
-from backend.open_webui.env import SRC_LOG_LEVELS
+from open_webui.utils.auth import get_admin_user, get_verified_user
+from open_webui.env import SRC_LOG_LEVELS
 
 
 log = logging.getLogger(__name__)

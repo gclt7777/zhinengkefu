@@ -1,12 +1,12 @@
-from backend.open_webui.retrieval.vector.utils import stringify_metadata
-from backend.open_webui.retrieval.vector.main import (
+from open_webui.retrieval.vector.utils import stringify_metadata
+from open_webui.retrieval.vector.main import (
     VectorDBBase,
     VectorItem,
     GetResult,
     SearchResult,
 )
-from backend.open_webui.config import S3_VECTOR_BUCKET_NAME, S3_VECTOR_REGION
-from backend.open_webui.env import SRC_LOG_LEVELS
+from open_webui.config import S3_VECTOR_BUCKET_NAME, S3_VECTOR_REGION
+from open_webui.env import SRC_LOG_LEVELS
 from typing import List, Optional, Dict, Any, Union
 import logging
 import boto3

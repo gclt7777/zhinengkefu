@@ -13,27 +13,27 @@ from langchain.retrievers import ContextualCompressionRetriever, EnsembleRetriev
 from langchain_community.retrievers import BM25Retriever
 from langchain_core.documents import Document
 
-from backend.open_webui.config import VECTOR_DB
-from backend.open_webui.retrieval.vector.factory import VECTOR_DB_CLIENT
+from open_webui.config import VECTOR_DB
+from open_webui.retrieval.vector.factory import VECTOR_DB_CLIENT
 
-from backend.open_webui.models.users import UserModel
-from backend.open_webui.models.files import Files
-from backend.open_webui.models.knowledge import Knowledges
+from open_webui.models.users import UserModel
+from open_webui.models.files import Files
+from open_webui.models.knowledge import Knowledges
 
-from backend.open_webui.models.chats import Chats
-from backend.open_webui.models.notes import Notes
+from open_webui.models.chats import Chats
+from open_webui.models.notes import Notes
 
-from backend.open_webui.retrieval.vector.main import GetResult
-from backend.open_webui.utils.access_control import has_access
-from backend.open_webui.utils.misc import get_message_list
+from open_webui.retrieval.vector.main import GetResult
+from open_webui.utils.access_control import has_access
+from open_webui.utils.misc import get_message_list
 
 
-from backend.open_webui.env import (
+from open_webui.env import (
     SRC_LOG_LEVELS,
     OFFLINE_MODE,
     ENABLE_FORWARD_USER_INFO_HEADERS,
 )
-from backend.open_webui.config import (
+from open_webui.config import (
     RAG_EMBEDDING_QUERY_PREFIX,
     RAG_EMBEDDING_CONTENT_PREFIX,
     RAG_EMBEDDING_PREFIX_FIELD_NAME,

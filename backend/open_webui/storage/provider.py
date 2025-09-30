@@ -9,7 +9,7 @@ from typing import BinaryIO, Tuple, Dict
 import boto3
 from botocore.config import Config
 from botocore.exceptions import ClientError
-from backend.open_webui.config import (
+from open_webui.config import (
     S3_ACCESS_KEY_ID,
     S3_BUCKET_NAME,
     S3_ENDPOINT_URL,
@@ -29,11 +29,11 @@ from backend.open_webui.config import (
 )
 from google.cloud import storage
 from google.cloud.exceptions import GoogleCloudError, NotFound
-from backend.open_webui.constants import ERROR_MESSAGES
+from open_webui.constants import ERROR_MESSAGES
 from azure.identity import DefaultAzureCredential
 from azure.storage.blob import BlobServiceClient
 from azure.core.exceptions import ResourceNotFoundError
-from backend.open_webui.env import SRC_LOG_LEVELS
+from open_webui.env import SRC_LOG_LEVELS
 
 
 log = logging.getLogger(__name__)

@@ -8,28 +8,28 @@ from pydantic import BaseModel
 import mimetypes
 
 
-from backend.open_webui.models.folders import (
+from open_webui.models.folders import (
     FolderForm,
     FolderUpdateForm,
     FolderModel,
     Folders,
 )
-from backend.open_webui.models.chats import Chats
-from backend.open_webui.models.files import Files
-from backend.open_webui.models.knowledge import Knowledges
+from open_webui.models.chats import Chats
+from open_webui.models.files import Files
+from open_webui.models.knowledge import Knowledges
 
 
-from backend.open_webui.config import UPLOAD_DIR
-from backend.open_webui.env import SRC_LOG_LEVELS
-from backend.open_webui.constants import ERROR_MESSAGES
+from open_webui.config import UPLOAD_DIR
+from open_webui.env import SRC_LOG_LEVELS
+from open_webui.constants import ERROR_MESSAGES
 
 
 from fastapi import APIRouter, Depends, File, HTTPException, UploadFile, status, Request
 from fastapi.responses import FileResponse, StreamingResponse
 
 
-from backend.open_webui.utils.auth import get_admin_user, get_verified_user
-from backend.open_webui.utils.access_control import has_permission
+from open_webui.utils.auth import get_admin_user, get_verified_user
+from open_webui.utils.access_control import has_permission
 
 
 log = logging.getLogger(__name__)

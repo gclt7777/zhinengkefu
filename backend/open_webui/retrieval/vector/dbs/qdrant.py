@@ -6,13 +6,13 @@ from qdrant_client import QdrantClient as Qclient
 from qdrant_client.http.models import PointStruct
 from qdrant_client.models import models
 
-from backend.open_webui.retrieval.vector.main import (
+from open_webui.retrieval.vector.main import (
     VectorDBBase,
     VectorItem,
     SearchResult,
     GetResult,
 )
-from backend.open_webui.config import (
+from open_webui.config import (
     QDRANT_URI,
     QDRANT_API_KEY,
     QDRANT_ON_DISK,
@@ -22,7 +22,7 @@ from backend.open_webui.config import (
     QDRANT_TIMEOUT,
     QDRANT_HNSW_M,
 )
-from backend.open_webui.env import SRC_LOG_LEVELS
+from open_webui.env import SRC_LOG_LEVELS
 
 NO_LIMIT = 999999999
 

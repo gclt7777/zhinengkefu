@@ -8,8 +8,8 @@ import json
 
 from cryptography.fernet import Fernet
 
-from backend.open_webui.internal.db import Base, get_db
-from backend.open_webui.env import SRC_LOG_LEVELS, OAUTH_SESSION_TOKEN_ENCRYPTION_KEY
+from open_webui.internal.db import Base, get_db
+from open_webui.env import SRC_LOG_LEVELS, OAUTH_SESSION_TOKEN_ENCRYPTION_KEY
 
 from pydantic import BaseModel, ConfigDict
 from sqlalchemy import BigInteger, Column, String, Text, Index
