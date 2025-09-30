@@ -1,7 +1,7 @@
 import json
 import uuid
-from open_webui.utils.redis import get_redis_connection
-from open_webui.env import REDIS_KEY_PREFIX
+from backend.open_webui.utils.redis import get_redis_connection
+from backend.open_webui.env import REDIS_KEY_PREFIX
 from typing import Optional, List, Tuple
 import pycrdt as Y
 

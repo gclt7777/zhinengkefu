@@ -14,48 +14,48 @@ from fastapi import Request, status
 from starlette.responses import Response, StreamingResponse, JSONResponse
 
 
-from open_webui.models.users import UserModel
+from backend.open_webui.models.users import UserModel
 
-from open_webui.socket.main import (
+from backend.open_webui.socket.main import (
     sio,
     get_event_call,
     get_event_emitter,
 )
-from open_webui.functions import generate_function_chat_completion
+from backend.open_webui.functions import generate_function_chat_completion
 
-from open_webui.routers.openai import (
+from backend.open_webui.routers.openai import (
     generate_chat_completion as generate_openai_chat_completion,
 )
 
-from open_webui.routers.ollama import (
+from backend.open_webui.routers.ollama import (
     generate_chat_completion as generate_ollama_chat_completion,
 )
 
-from open_webui.routers.pipelines import (
+from backend.open_webui.routers.pipelines import (
     process_pipeline_inlet_filter,
     process_pipeline_outlet_filter,
 )
 
-from open_webui.models.functions import Functions
-from open_webui.models.models import Models
+from backend.open_webui.models.functions import Functions
+from backend.open_webui.models.models import Models
 
 
-from open_webui.utils.plugin import (
+from backend.open_webui.utils.plugin import (
     load_function_module_by_id,
     get_function_module_from_cache,
 )
-from open_webui.utils.models import get_all_models, check_model_access
-from open_webui.utils.payload import convert_payload_openai_to_ollama
-from open_webui.utils.response import (
+from backend.open_webui.utils.models import get_all_models, check_model_access
+from backend.open_webui.utils.payload import convert_payload_openai_to_ollama
+from backend.open_webui.utils.response import (
     convert_response_ollama_to_openai,
     convert_streaming_response_ollama_to_openai,
 )
-from open_webui.utils.filter import (
+from backend.open_webui.utils.filter import (
     get_sorted_filter_ids,
     process_filter_functions,
 )
 
-from open_webui.env import SRC_LOG_LEVELS, GLOBAL_LOG_LEVEL, BYPASS_MODEL_ACCESS_CONTROL
+from backend.open_webui.env import SRC_LOG_LEVELS, GLOBAL_LOG_LEVEL, BYPASS_MODEL_ACCESS_CONTROL
 
 
 logging.basicConfig(stream=sys.stdout, level=GLOBAL_LOG_LEVEL)

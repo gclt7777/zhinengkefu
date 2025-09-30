@@ -22,24 +22,24 @@ from fastapi import (
 )
 
 from fastapi.responses import FileResponse, StreamingResponse
-from open_webui.constants import ERROR_MESSAGES
-from open_webui.env import SRC_LOG_LEVELS
-from open_webui.retrieval.vector.factory import VECTOR_DB_CLIENT
+from backend.open_webui.constants import ERROR_MESSAGES
+from backend.open_webui.env import SRC_LOG_LEVELS
+from backend.open_webui.retrieval.vector.factory import VECTOR_DB_CLIENT
 
-from open_webui.models.users import Users
-from open_webui.models.files import (
+from backend.open_webui.models.users import Users
+from backend.open_webui.models.files import (
     FileForm,
     FileModel,
     FileModelResponse,
     Files,
 )
-from open_webui.models.knowledge import Knowledges
+from backend.open_webui.models.knowledge import Knowledges
 
-from open_webui.routers.knowledge import get_knowledge, get_knowledge_list
-from open_webui.routers.retrieval import ProcessFileForm, process_file
-from open_webui.routers.audio import transcribe
-from open_webui.storage.provider import Storage
-from open_webui.utils.auth import get_admin_user, get_verified_user
+from backend.open_webui.routers.knowledge import get_knowledge, get_knowledge_list
+from backend.open_webui.routers.retrieval import ProcessFileForm, process_file
+from backend.open_webui.routers.audio import transcribe
+from backend.open_webui.storage.provider import Storage
+from backend.open_webui.utils.auth import get_admin_user, get_verified_user
 from pydantic import BaseModel
 
 log = logging.getLogger(__name__)

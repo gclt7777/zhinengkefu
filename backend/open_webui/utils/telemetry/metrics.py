@@ -37,7 +37,7 @@ from opentelemetry.sdk.metrics.export import (
 )
 from opentelemetry.sdk.resources import Resource
 
-from open_webui.env import (
+from backend.open_webui.env import (
     OTEL_SERVICE_NAME,
     OTEL_METRICS_EXPORTER_OTLP_ENDPOINT,
     OTEL_METRICS_BASIC_AUTH_USERNAME,
@@ -45,8 +45,8 @@ from open_webui.env import (
     OTEL_METRICS_OTLP_SPAN_EXPORTER,
     OTEL_METRICS_EXPORTER_OTLP_INSECURE,
 )
-from open_webui.socket.main import get_active_user_ids
-from open_webui.models.users import Users
+from backend.open_webui.socket.main import get_active_user_ids
+from backend.open_webui.models.users import Users
 
 _EXPORT_INTERVAL_MILLIS = 10_000  # 10 seconds
 

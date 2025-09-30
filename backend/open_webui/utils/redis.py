@@ -5,7 +5,7 @@ import logging
 
 import redis
 
-from open_webui.env import REDIS_SENTINEL_MAX_RETRY_COUNT
+from backend.open_webui.env import REDIS_SENTINEL_MAX_RETRY_COUNT
 
 log = logging.getLogger(__name__)
 

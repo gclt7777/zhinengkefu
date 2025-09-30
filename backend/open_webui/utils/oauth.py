@@ -26,13 +26,13 @@ from starlette.responses import RedirectResponse
 from typing import Optional
 
 
-from open_webui.models.auths import Auths
-from open_webui.models.oauth_sessions import OAuthSessions
-from open_webui.models.users import Users
+from backend.open_webui.models.auths import Auths
+from backend.open_webui.models.oauth_sessions import OAuthSessions
+from backend.open_webui.models.users import Users
 
 
-from open_webui.models.groups import Groups, GroupModel, GroupUpdateForm, GroupForm
-from open_webui.config import (
+from backend.open_webui.models.groups import Groups, GroupModel, GroupUpdateForm, GroupForm
+from backend.open_webui.config import (
     DEFAULT_USER_ROLE,
     ENABLE_OAUTH_SIGNUP,
     OAUTH_MERGE_ACCOUNTS_BY_EMAIL,
@@ -55,8 +55,8 @@ from open_webui.config import (
     JWT_EXPIRES_IN,
     AppConfig,
 )
-from open_webui.constants import ERROR_MESSAGES, WEBHOOK_MESSAGES
-from open_webui.env import (
+from backend.open_webui.constants import ERROR_MESSAGES, WEBHOOK_MESSAGES
+from backend.open_webui.env import (
     AIOHTTP_CLIENT_SESSION_SSL,
     WEBUI_NAME,
     WEBUI_AUTH_COOKIE_SAME_SITE,
@@ -64,9 +64,9 @@ from open_webui.env import (
     ENABLE_OAUTH_ID_TOKEN_COOKIE,
     OAUTH_CLIENT_INFO_ENCRYPTION_KEY,
 )
-from open_webui.utils.misc import parse_duration
-from open_webui.utils.auth import get_password_hash, create_token
-from open_webui.utils.webhook import post_webhook
+from backend.open_webui.utils.misc import parse_duration
+from backend.open_webui.utils.auth import get_password_hash, create_token
+from backend.open_webui.utils.webhook import post_webhook
 
 from mcp.shared.auth import (
     OAuthClientMetadata,
@@ -83,7 +83,7 @@ class OAuthClientInformationFull(OAuthClientMetadata):
     client_secret_expires_at: int | None = None
 
 
-from open_webui.env import SRC_LOG_LEVELS, GLOBAL_LOG_LEVEL
+from backend.open_webui.env import SRC_LOG_LEVELS, GLOBAL_LOG_LEVEL
 
 logging.basicConfig(stream=sys.stdout, level=GLOBAL_LOG_LEVEL)
 log = logging.getLogger(__name__)

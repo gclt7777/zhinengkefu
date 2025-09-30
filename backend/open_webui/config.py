@@ -16,7 +16,7 @@ from sqlalchemy import JSON, Column, DateTime, Integer, func
 from authlib.integrations.starlette_client import OAuth
 
 
-from open_webui.env import (
+from backend.open_webui.env import (
     DATA_DIR,
     DATABASE_URL,
     ENV,
@@ -32,8 +32,8 @@ from open_webui.env import (
     WEBUI_NAME,
     log,
 )
-from open_webui.internal.db import Base, get_db
-from open_webui.utils.redis import get_redis_connection
+from backend.open_webui.internal.db import Base, get_db
+from backend.open_webui.utils.redis import get_redis_connection
 
 
 class EndpointFilter(logging.Filter):

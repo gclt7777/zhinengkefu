@@ -15,16 +15,16 @@ from fastapi import APIRouter, Depends, HTTPException, Request, Query, Header, s
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field, ConfigDict
 
-from open_webui.models.users import Users, UserModel
-from open_webui.models.groups import Groups, GroupModel
-from open_webui.utils.auth import (
+from backend.open_webui.models.users import Users, UserModel
+from backend.open_webui.models.groups import Groups, GroupModel
+from backend.open_webui.utils.auth import (
     get_admin_user,
     get_current_user,
     decode_token,
     get_verified_user,
 )
-from open_webui.constants import ERROR_MESSAGES
-from open_webui.env import SRC_LOG_LEVELS
+from backend.open_webui.constants import ERROR_MESSAGES
+from backend.open_webui.env import SRC_LOG_LEVELS
 
 log = logging.getLogger(__name__)
 log.setLevel(SRC_LOG_LEVELS["MAIN"])

@@ -1,5 +1,5 @@
-from open_webui.utils.task import prompt_template, prompt_variables_template
-from open_webui.utils.misc import (
+from backend.open_webui.utils.task import prompt_template, prompt_variables_template
+from backend.open_webui.utils.misc import (
     deep_update,
     add_or_update_system_message,
 )

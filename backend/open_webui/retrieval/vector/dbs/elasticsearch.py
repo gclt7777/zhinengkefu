@@ -3,14 +3,14 @@ from typing import Optional
 import ssl
 from elasticsearch.helpers import bulk, scan
 
-from open_webui.retrieval.vector.utils import stringify_metadata
-from open_webui.retrieval.vector.main import (
+from backend.open_webui.retrieval.vector.utils import stringify_metadata
+from backend.open_webui.retrieval.vector.main import (
     VectorDBBase,
     VectorItem,
     SearchResult,
     GetResult,
 )
-from open_webui.config import (
+from backend.open_webui.config import (
     ELASTICSEARCH_URL,
     ELASTICSEARCH_CA_CERTS,
     ELASTICSEARCH_API_KEY,

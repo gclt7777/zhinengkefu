@@ -6,23 +6,23 @@ import aiohttp
 from pathlib import Path
 from typing import Optional
 
-from open_webui.models.functions import (
+from backend.open_webui.models.functions import (
     FunctionForm,
     FunctionModel,
     FunctionResponse,
     FunctionWithValvesModel,
     Functions,
 )
-from open_webui.utils.plugin import (
+from backend.open_webui.utils.plugin import (
     load_function_module_by_id,
     replace_imports,
     get_function_module_from_cache,
 )
-from open_webui.config import CACHE_DIR
-from open_webui.constants import ERROR_MESSAGES
+from backend.open_webui.config import CACHE_DIR
+from backend.open_webui.constants import ERROR_MESSAGES
 from fastapi import APIRouter, Depends, HTTPException, Request, status
-from open_webui.utils.auth import get_admin_user, get_verified_user
-from open_webui.env import SRC_LOG_LEVELS
+from backend.open_webui.utils.auth import get_admin_user, get_verified_user
+from backend.open_webui.env import SRC_LOG_LEVELS
 from pydantic import BaseModel, HttpUrl
 
 

@@ -2,7 +2,7 @@ from typing import Optional
 import io
 import base64
 
-from open_webui.models.models import (
+from backend.open_webui.models.models import (
     ModelForm,
     ModelModel,
     ModelResponse,
@@ -11,14 +11,14 @@ from open_webui.models.models import (
 )
 
 from pydantic import BaseModel
-from open_webui.constants import ERROR_MESSAGES
+from backend.open_webui.constants import ERROR_MESSAGES
 from fastapi import APIRouter, Depends, HTTPException, Request, status, Response
 from fastapi.responses import FileResponse, StreamingResponse
 
 
-from open_webui.utils.auth import get_admin_user, get_verified_user
-from open_webui.utils.access_control import has_access, has_permission
-from open_webui.config import BYPASS_ADMIN_ACCESS_CONTROL, STATIC_DIR
+from backend.open_webui.utils.auth import get_admin_user, get_verified_user
+from backend.open_webui.utils.access_control import has_access, has_permission
+from backend.open_webui.config import BYPASS_ADMIN_ACCESS_CONTROL, STATIC_DIR
 
 router = APIRouter()
 

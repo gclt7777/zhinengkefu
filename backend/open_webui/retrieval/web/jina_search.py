@@ -1,8 +1,8 @@
 import logging
 
 import requests
-from open_webui.retrieval.web.main import SearchResult
-from open_webui.env import SRC_LOG_LEVELS
+from backend.open_webui.retrieval.web.main import SearchResult
+from backend.open_webui.env import SRC_LOG_LEVELS
 from yarl import URL
 
 log = logging.getLogger(__name__)

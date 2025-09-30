@@ -2,11 +2,11 @@ import logging
 import time
 from typing import Optional
 
-from open_webui.internal.db import Base, JSONField, get_db
-from open_webui.env import SRC_LOG_LEVELS
+from backend.open_webui.internal.db import Base, JSONField, get_db
+from backend.open_webui.env import SRC_LOG_LEVELS
 
-from open_webui.models.groups import Groups
-from open_webui.models.users import Users, UserResponse
+from backend.open_webui.models.groups import Groups
+from backend.open_webui.models.users import Users, UserResponse
 
 
 from pydantic import BaseModel, ConfigDict
@@ -16,7 +16,7 @@ from sqlalchemy.dialects import postgresql, sqlite
 from sqlalchemy import BigInteger, Column, Text, JSON, Boolean
 
 
-from open_webui.utils.access_control import has_access
+from backend.open_webui.utils.access_control import has_access
 
 
 log = logging.getLogger(__name__)

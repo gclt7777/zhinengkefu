@@ -11,7 +11,7 @@ from cryptography.hazmat.primitives import serialization
 
 import markdown
 from bs4 import BeautifulSoup
-from open_webui.constants import ERROR_MESSAGES
+from open_webui.constants import ERROR_MESSAGES  # Use package root path for constants
 
 ####################################
 # Load .env file

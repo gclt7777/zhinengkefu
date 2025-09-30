@@ -1,13 +1,13 @@
 import time
 from typing import Optional
 
-from open_webui.internal.db import Base, JSONField, get_db
+from backend.open_webui.internal.db import Base, JSONField, get_db
 
 
-from open_webui.env import DATABASE_USER_ACTIVE_STATUS_UPDATE_INTERVAL
-from open_webui.models.chats import Chats
-from open_webui.models.groups import Groups
-from open_webui.utils.misc import throttle
+from backend.open_webui.env import DATABASE_USER_ACTIVE_STATUS_UPDATE_INTERVAL
+from backend.open_webui.models.chats import Chats
+from backend.open_webui.models.groups import Groups
+from backend.open_webui.utils.misc import throttle
 
 
 from pydantic import BaseModel, ConfigDict

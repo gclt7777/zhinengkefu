@@ -1,6 +1,6 @@
-from open_webui.retrieval.vector.main import VectorDBBase
-from open_webui.retrieval.vector.type import VectorType
-from open_webui.config import VECTOR_DB, ENABLE_QDRANT_MULTITENANCY_MODE
+from backend.open_webui.retrieval.vector.main import VectorDBBase
+from backend.open_webui.retrieval.vector.type import VectorType
+from backend.open_webui.config import VECTOR_DB, ENABLE_QDRANT_MULTITENANCY_MODE
 
 
 class Vector:

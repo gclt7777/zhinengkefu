@@ -7,17 +7,17 @@ from fastapi import APIRouter, Depends, HTTPException, Request, status, Backgrou
 from pydantic import BaseModel
 
 
-from open_webui.socket.main import sio, get_user_ids_from_room
-from open_webui.models.users import Users, UserNameResponse
+from backend.open_webui.socket.main import sio, get_user_ids_from_room
+from backend.open_webui.models.users import Users, UserNameResponse
 
-from open_webui.models.groups import Groups
-from open_webui.models.channels import (
+from backend.open_webui.models.groups import Groups
+from backend.open_webui.models.channels import (
     Channels,
     ChannelModel,
     ChannelForm,
     ChannelResponse,
 )
-from open_webui.models.messages import (
+from backend.open_webui.models.messages import (
     Messages,
     MessageModel,
     MessageResponse,
@@ -25,22 +25,22 @@ from open_webui.models.messages import (
 )
 
 
-from open_webui.config import ENABLE_ADMIN_CHAT_ACCESS, ENABLE_ADMIN_EXPORT
-from open_webui.constants import ERROR_MESSAGES
-from open_webui.env import SRC_LOG_LEVELS
+from backend.open_webui.config import ENABLE_ADMIN_CHAT_ACCESS, ENABLE_ADMIN_EXPORT
+from backend.open_webui.constants import ERROR_MESSAGES
+from backend.open_webui.env import SRC_LOG_LEVELS
 
 
-from open_webui.utils.models import (
+from backend.open_webui.utils.models import (
     get_all_models,
     get_filtered_models,
 )
-from open_webui.utils.chat import generate_chat_completion
+from backend.open_webui.utils.chat import generate_chat_completion
 
 
-from open_webui.utils.auth import get_admin_user, get_verified_user
-from open_webui.utils.access_control import has_access, get_users_with_access
-from open_webui.utils.webhook import post_webhook
-from open_webui.utils.channels import extract_mentions, replace_mentions
+from backend.open_webui.utils.auth import get_admin_user, get_verified_user
+from backend.open_webui.utils.access_control import has_access, get_users_with_access
+from backend.open_webui.utils.webhook import post_webhook
+from backend.open_webui.utils.channels import extract_mentions, replace_mentions
 
 log = logging.getLogger(__name__)
 log.setLevel(SRC_LOG_LEVELS["MODELS"])

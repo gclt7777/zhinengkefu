@@ -8,7 +8,7 @@ from redis.asyncio import Redis
 from fastapi import Request
 from typing import Dict, List, Optional
 
-from open_webui.env import SRC_LOG_LEVELS, REDIS_KEY_PREFIX
+from backend.open_webui.env import SRC_LOG_LEVELS, REDIS_KEY_PREFIX
 
 
 log = logging.getLogger(__name__)

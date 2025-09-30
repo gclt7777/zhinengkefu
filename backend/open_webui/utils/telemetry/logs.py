@@ -11,7 +11,7 @@ from opentelemetry.exporter.otlp.proto.http._log_exporter import (
 from opentelemetry.sdk._logs.export import BatchLogRecordProcessor
 from opentelemetry._logs import set_logger_provider
 from opentelemetry.sdk.resources import SERVICE_NAME, Resource
-from open_webui.env import (
+from backend.open_webui.env import (
     OTEL_SERVICE_NAME,
     OTEL_LOGS_EXPORTER_OTLP_ENDPOINT,
     OTEL_LOGS_EXPORTER_OTLP_INSECURE,

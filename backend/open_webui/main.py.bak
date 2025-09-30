@@ -56,18 +56,17 @@ from starsessions import (
 )
 from starsessions.stores.redis import RedisStore
 
-from open_webui.defaults_agents import ensure_default_agents
-from open_webui.utils import logger
-from open_webui.utils.audit import AuditLevel, AuditLoggingMiddleware
-from open_webui.utils.logger import start_logger
-from open_webui.socket.main import (
+from backend.open_webui.utils import logger
+from backend.open_webui.utils.audit import AuditLevel, AuditLoggingMiddleware
+from backend.open_webui.utils.logger import start_logger
+from backend.open_webui.socket.main import (
     app as socket_app,
     periodic_usage_pool_cleanup,
     get_event_emitter,
     get_models_in_use,
     get_active_user_ids,
 )
-from open_webui.routers import (
+from backend.open_webui.routers import (
     audio,
     images,
     ollama,
@@ -95,21 +94,21 @@ from open_webui.routers import (
     scim,
 )
 
-from open_webui.routers.retrieval import (
+from backend.open_webui.routers.retrieval import (
     get_embedding_function,
     get_reranking_function,
     get_ef,
     get_rf,
 )
 
-from open_webui.internal.db import Session, engine
+from backend.open_webui.internal.db import Session, engine
 
-from open_webui.models.functions import Functions
-from open_webui.models.models import Models
-from open_webui.models.users import UserModel, Users
-from open_webui.models.chats import Chats
+from backend.open_webui.models.functions import Functions
+from backend.open_webui.models.models import Models
+from backend.open_webui.models.users import UserModel, Users
+from backend.open_webui.models.chats import Chats
 
-from open_webui.config import (
+from backend.open_webui.config import (
     # Ollama
     ENABLE_OLLAMA_API,
     OLLAMA_BASE_URLS,
@@ -413,7 +412,7 @@ from open_webui.config import (
     AppConfig,
     reset_config,
 )
-from open_webui.env import (
+from backend.open_webui.env import (
     LICENSE_KEY,
     AUDIT_EXCLUDED_PATHS,
     AUDIT_LOG_LEVEL,
@@ -451,39 +450,39 @@ from open_webui.env import (
 )
 
 
-from open_webui.utils.models import (
+from backend.open_webui.utils.models import (
     get_all_models,
     get_all_base_models,
     check_model_access,
     get_filtered_models,
 )
-from open_webui.utils.chat import (
+from backend.open_webui.utils.chat import (
     generate_chat_completion as chat_completion_handler,
     chat_completed as chat_completed_handler,
     chat_action as chat_action_handler,
 )
-from open_webui.utils.embeddings import generate_embeddings
-from open_webui.utils.middleware import process_chat_payload, process_chat_response
-from open_webui.utils.access_control import has_access
+from backend.open_webui.utils.embeddings import generate_embeddings
+from backend.open_webui.utils.middleware import process_chat_payload, process_chat_response
+from backend.open_webui.utils.access_control import has_access
 
-from open_webui.utils.auth import (
+from backend.open_webui.utils.auth import (
     get_license_data,
     get_http_authorization_cred,
     decode_token,
     get_admin_user,
     get_verified_user,
 )
-from open_webui.utils.plugin import install_tool_and_function_dependencies
-from open_webui.utils.oauth import (
+from backend.open_webui.utils.plugin import install_tool_and_function_dependencies
+from backend.open_webui.utils.oauth import (
     OAuthManager,
     OAuthClientManager,
     decrypt_data,
     OAuthClientInformationFull,
 )
-from open_webui.utils.security_headers import SecurityHeadersMiddleware
-from open_webui.utils.redis import get_redis_connection
+from backend.open_webui.utils.security_headers import SecurityHeadersMiddleware
+from backend.open_webui.utils.redis import get_redis_connection
 
-from open_webui.tasks import (
+from backend.open_webui.tasks import (
     redis_task_command_listener,
     list_task_ids_by_item_id,
     create_task,
@@ -491,10 +490,10 @@ from open_webui.tasks import (
     list_tasks,
 )  # Import from tasks.py
 
-from open_webui.utils.redis import get_sentinels_from_env
+from backend.open_webui.utils.redis import get_sentinels_from_env
 
 
-from open_webui.constants import ERROR_MESSAGES
+from backend.open_webui.constants import ERROR_MESSAGES
 
 
 if SAFE_MODE:
@@ -637,7 +636,8 @@ app.state.LICENSE_METADATA = None
 ########################################
 
 if ENABLE_OTEL:
-    from open_webui.utils.telemetry.setup import setup as setup_opentelemetry
+    from backend.open_webui.utils.telemetry.setup import setup as setup_opentelemetry
+
 
     setup_opentelemetry(app=app, db_engine=engine)
 
@@ -791,9 +791,8 @@ app.state.TOOL_CONTENTS = {}
 
 app.state.FUNCTIONS = {}
 app.state.FUNCTION_CONTENTS = {}
-
 # Ensure bundled multi-agent pipelines are available for new installations
-ensure_default_agents()
+#ensure_default_agents()
 
 ########################################
 #

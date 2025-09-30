@@ -34,10 +34,10 @@ from langchain_core.utils.function_calling import (
 )
 
 
-from open_webui.models.tools import Tools
-from open_webui.models.users import UserModel
-from open_webui.utils.plugin import load_tool_module_by_id
-from open_webui.env import (
+from backend.open_webui.models.tools import Tools
+from backend.open_webui.models.users import UserModel
+from backend.open_webui.utils.plugin import load_tool_module_by_id
+from backend.open_webui.env import (
     SRC_LOG_LEVELS,
     AIOHTTP_CLIENT_TIMEOUT,
     AIOHTTP_CLIENT_TIMEOUT_TOOL_SERVER_DATA,

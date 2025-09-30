@@ -17,13 +17,13 @@ import functools  # for partial binding in async tasks
 import concurrent.futures  # for parallel batch upserts
 import random  # for jitter in retry backoff
 
-from open_webui.retrieval.vector.main import (
+from backend.open_webui.retrieval.vector.main import (
     VectorDBBase,
     VectorItem,
     SearchResult,
     GetResult,
 )
-from open_webui.config import (
+from backend.open_webui.config import (
     PINECONE_API_KEY,
     PINECONE_ENVIRONMENT,
     PINECONE_INDEX_NAME,
@@ -31,8 +31,8 @@ from open_webui.config import (
     PINECONE_METRIC,
     PINECONE_CLOUD,
 )
-from open_webui.env import SRC_LOG_LEVELS
-from open_webui.retrieval.vector.utils import stringify_metadata
+from backend.open_webui.env import SRC_LOG_LEVELS
+from backend.open_webui.retrieval.vector.utils import stringify_metadata
 
 
 NO_LIMIT = 10000  # Reasonable limit to avoid overwhelming the system

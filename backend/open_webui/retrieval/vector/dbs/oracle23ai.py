@@ -36,14 +36,14 @@ import json
 import array
 import oracledb
 
-from open_webui.retrieval.vector.main import (
+from backend.open_webui.retrieval.vector.main import (
     VectorDBBase,
     VectorItem,
     SearchResult,
     GetResult,
 )
 
-from open_webui.config import (
+from backend.open_webui.config import (
     ORACLE_DB_USE_WALLET,
     ORACLE_DB_USER,
     ORACLE_DB_PASSWORD,
@@ -55,7 +55,7 @@ from open_webui.config import (
     ORACLE_DB_POOL_MAX,
     ORACLE_DB_POOL_INCREMENT,
 )
-from open_webui.env import SRC_LOG_LEVELS
+from backend.open_webui.env import SRC_LOG_LEVELS
 
 log = logging.getLogger(__name__)
 log.setLevel(SRC_LOG_LEVELS["RAG"])
