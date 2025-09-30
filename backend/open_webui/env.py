@@ -250,12 +250,30 @@ STATIC_DIR = Path(os.getenv("STATIC_DIR", OPEN_WEBUI_DIR / "static"))
 
 FONTS_DIR = Path(os.getenv("FONTS_DIR", OPEN_WEBUI_DIR / "static" / "fonts"))
 
-FRONTEND_BUILD_DIR = Path(os.getenv("FRONTEND_BUILD_DIR", BASE_DIR / "build")).resolve()
+_frontend_env_override = os.getenv("FRONTEND_BUILD_DIR")
 
-if FROM_INIT_PY:
-    FRONTEND_BUILD_DIR = Path(
-        os.getenv("FRONTEND_BUILD_DIR", OPEN_WEBUI_DIR / "frontend")
-    ).resolve()
+if _frontend_env_override:
+    FRONTEND_BUILD_DIR = Path(_frontend_env_override).resolve()
+    _frontend_source = "environment override"
+else:
+    default_frontend_build_dir = BASE_DIR / "build"
+
+    if FROM_INIT_PY:
+        packaged_frontend_dir = OPEN_WEBUI_DIR / "frontend"
+        if packaged_frontend_dir.exists():
+            FRONTEND_BUILD_DIR = packaged_frontend_dir.resolve()
+            _frontend_source = "packaged frontend"
+        else:
+            FRONTEND_BUILD_DIR = default_frontend_build_dir.resolve()
+            _frontend_source = "repository build fallback"
+    else:
+        FRONTEND_BUILD_DIR = default_frontend_build_dir.resolve()
+        _frontend_source = "repository build"
+
+log.info(f"Using frontend build directory: {FRONTEND_BUILD_DIR} ({_frontend_source})")
+
+del _frontend_env_override
+del _frontend_source
 
 ####################################
 # Database
