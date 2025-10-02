@@ -74,7 +74,7 @@ def _normalize_postgres_url(url: str) -> str:
 
 
 def handle_peewee_migration(DATABASE_URL):
-    db = None
+    db: Optional[Any] = None
     try:
         # Normalize PostgreSQL URLs (e.g. postgresql+psycopg2://) for peewee compatibility
         db = register_connection(_normalize_postgres_url(DATABASE_URL))
