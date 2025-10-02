@@ -52,23 +52,3 @@ export DATABASE_PASSWORD="URL-ENCODED-PASSWORD"
    PY
    ```
 3. 测试一次 OAuth 登录。远程 PostgreSQL 的 `oauth_session` 表应写入加密后的 token，表示加密密钥与数据库配置均已生效。
-
-## 4. 处理数据库迁移冲突
-
-如果你已经在远端 PostgreSQL 手工建表，启动时 Peewee 迁移可能会因为“列已存在”等错误终止。出现这种情况时，可以按需选择以下两种处理方式：
-
-### 方式 A：让数据库回到迁移预期的空结构
-
-1. **测试环境/无数据时**：直接清空或删除 `auth`、`"user"`、`oauth_session`、`config` 等表，然后重新启动服务，让 Peewee 与 Alembic 自动创建全部结构。
-2. **需要保留数据时**：手动删除报错中提到的列（例如 `ALTER TABLE "user" DROP COLUMN api_key;`），再重新启动服务，让迁移脚本重新补齐该列。
-
-### 方式 B：告知 Peewee 对应迁移已经执行
-
-1. 保留手工创建的列，并在远端数据库中插入一条迁移记录，例如：
-   ```sql
-   INSERT INTO peewee_migrate (name) VALUES ('003_add_auth_api_key');
-   ```
-   如果还有其他已手工完成的迁移，也按需补齐对应的名称。
-2. 重新启动服务。Peewee 会跳过这些已登记的迁移，继续执行剩余未完成的脚本。
-
-> **最佳实践：** 远端数据库初始化时，仅创建空库与账号，把表结构的创建和演进交给项目自带的迁移体系处理，可以避免重复 DDL，也能确保后续新增字段和索引自动同步。

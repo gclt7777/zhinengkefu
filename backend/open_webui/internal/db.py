@@ -3,6 +3,7 @@ import json
 import logging
 from contextlib import contextmanager
 from typing import Any, Optional
+from urllib.parse import urlparse, urlunparse
 
 from open_webui.internal.wrappers import register_connection
 from open_webui.env import (
@@ -52,11 +53,25 @@ class JSONField(types.TypeDecorator):
 
 # Workaround to handle the peewee migration
 # This is required to ensure the peewee migration is handled before the alembic migration
+
+
+def _normalize_postgres_url(url: str) -> str:
+    """Normalize SQLAlchemy PostgreSQL URLs for peewee compatibility."""
+
+    parsed_url = urlparse(url)
+
+    if parsed_url.scheme and parsed_url.scheme.lower().startswith("postgresql"):
+        normalized_url = parsed_url._replace(scheme="postgres")
+        return urlunparse(normalized_url)
+
+    return url
+
+
 def handle_peewee_migration(DATABASE_URL):
-    # db = None
+    db: Optional[Any] = None
     try:
-        # Replace the postgresql:// with postgres:// to handle the peewee migration
-        db = register_connection(DATABASE_URL.replace("postgresql://", "postgres://"))
+        # Normalize PostgreSQL URLs (e.g. postgresql+psycopg2://) for peewee compatibility
+        db = register_connection(_normalize_postgres_url(DATABASE_URL))
         migrate_dir = OPEN_WEBUI_DIR / "internal" / "migrations"
         router = Router(db, logger=log, migrate_dir=migrate_dir)
         router.run()
@@ -70,11 +85,12 @@ def handle_peewee_migration(DATABASE_URL):
         raise
     finally:
         # Properly closing the database connection
-        if db and not db.is_closed():
-            db.close()
+        if db is not None:
+            if not db.is_closed():
+                db.close()
 
-        # Assert if db connection has been closed
-        assert db.is_closed(), "Database connection is still open."
+            # Assert if db connection has been closed
+            assert db.is_closed(), "Database connection is still open."
 
 
 handle_peewee_migration(DATABASE_URL)
