@@ -53,22 +53,16 @@ class JSONField(types.TypeDecorator):
 
 # Workaround to handle the peewee migration
 # This is required to ensure the peewee migration is handled before the alembic migration
+
+
 def _normalize_postgres_url(url: str) -> str:
     """Normalize SQLAlchemy PostgreSQL URLs for peewee compatibility."""
 
     parsed_url = urlparse(url)
 
     if parsed_url.scheme and parsed_url.scheme.lower().startswith("postgresql"):
-        return urlunparse(
-            (
-                "postgres",
-                parsed_url.netloc,
-                parsed_url.path,
-                parsed_url.params,
-                parsed_url.query,
-                parsed_url.fragment,
-            )
-        )
+        normalized_url = parsed_url._replace(scheme="postgres")
+        return urlunparse(normalized_url)
 
     return url
 
